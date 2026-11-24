@@ -8,6 +8,6 @@ const visitorSessionSchema = new mongoose.Schema({
     route: { type: mongoose.Schema.Types.ObjectId, ref: 'Route' },
     date: { type: Date, default: Date.now }
   }]
-}, { timestamps: true });
+});
 
 module.exports = mongoose.model('VisitorSession', visitorSessionSchema);

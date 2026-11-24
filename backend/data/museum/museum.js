@@ -1,5 +1,4 @@
 let mongoose = require("mongoose");
-const { required } = require("nodemon/lib/config");
 let Schema = mongoose.Schema;
 
 let MuseumSchema = new Schema({

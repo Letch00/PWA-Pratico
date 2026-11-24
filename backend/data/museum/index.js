@@ -1,6 +1,6 @@
-const Users = require('./museum');
-const UsersService = require('./service');
+const Museum = require('./museum');
+const MusuemsSchema = require('./service');
 
-const service = UsersService(Users);
+const service = MusuemsSchema(Museum);
 
 module.exports = service;

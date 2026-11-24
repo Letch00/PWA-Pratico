@@ -1,15 +1,16 @@
-const mongoose = require('mongoose');
+let mongoose = require("mongoose");
+let Schema = mongoose.Schema;
 
-const routeSchema = new mongoose.Schema(
-    {
-        name: { type: String, required: [true, 'Name is required'], trim: true },
-        description: { type: String, trim: true, default: '' },
-        estimatedMinutes: { type: Number, min: 0, default: 0 },
+let RouteSchema = new Schema({
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    estimatedMinutes: { type: Number, default: 0 },
+    points: [{ type: Schema.Types.ObjectId, ref: "PointOfInterest" }],
+    published: { type: Boolean, default: false },
+    custom: { type: Boolean, default: false },    // true se for um percurso personalizado criado por um visitante (extra)
+    session: { type: Schema.Types.ObjectId, ref: "VisitorSession" },    // sessão que criou o percurso personalizado
+});
 
-        points: [{ type: mongoose.Schema.Types.ObjectId, ref: 'PointOfInterest' }],
-        published: { type: Boolean, default: false },
-    },
-    { timestamps: true }
-);
+let Route = mongoose.model("Route", RouteSchema);
 
-module.exports = mongoose.model('Route', routeSchema);
+module.exports = Route;
