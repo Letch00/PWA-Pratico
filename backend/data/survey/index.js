@@ -1,6 +1,6 @@
-const Route = require('./survey');
-const RouteService = require('./service');
+const Survey = require('./survey');
+const SurveyService = require('./service');
 
-const service = RouteService(Route);
+const service = SurveyService(Survey);
 
 module.exports = service;
